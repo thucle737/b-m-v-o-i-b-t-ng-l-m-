@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bất ngờ chưa nào!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            flex-direction: column;
+        }
+        img {
+            max-width: 300px;
+            height: auto;
+            position: absolute;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 350px;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="trollface" src="trollface.png" alt="Trollface">
+    <button onclick="troll()">Click Me</button>
+
+    <script>
+        function blinkImage() {
+            let img = document.getElementById("trollface");
+            let count = 0;
+            let interval = setInterval(() => {
+                img.style.visibility = (img.style.visibility === "hidden") ? "visible" : "hidden";
+                count++;
+                if (count === 10) clearInterval(interval); // 5 lần nhấp nháy (ẩn/hiện mỗi 500ms)
+            }, 500);
+        }
+
+        function troll() {
+            setInterval(() => {
+                alert("Bất ngờ chưa nào, hahaha!");
+            }, 1000);
+        }
+
+        window.onload = blinkImage;
+    </script>
+
+</body>
+</html>
